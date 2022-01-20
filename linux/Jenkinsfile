@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
          terraform 'Terraform-11'
+         git branch: 'main', credentialsId: '87be191b-d1f1-43d8-b679-653249159a46', url: 'https://github.com/Deepu206/TerraformLinux'
     }
     parameters {
         string(name: 'WORKSPACE', defaultValue: 'development', description:'setting up workspace for terraform')
