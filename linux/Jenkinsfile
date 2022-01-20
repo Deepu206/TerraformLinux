@@ -1,8 +1,7 @@
 pipeline {
     agent any
     tools {
-         terraform 'Terraform-11'
-         git 'Default'     
+         terraform 'terraform-11'       
     }
     parameters {
         string(name: 'WORKSPACE', defaultValue: 'development', description:'setting up workspace for terraform')
