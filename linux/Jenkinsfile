@@ -15,10 +15,10 @@ pipeline {
     stages {
             stage('TerraformInit'){
             steps {
-                dir('TerraformLinux/linux/'){
+                dir('https://github.com/Deepu206/TerraformLinux/tree/main/linux') {
                     sh "terraform init -input=false"
                     sh "echo \$PWD"
-                    sh "whoami"
+                    sh "whoami" 
                 }
             }
         }
