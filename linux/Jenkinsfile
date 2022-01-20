@@ -25,7 +25,7 @@ pipeline {
 
         stage('TerraformFormat'){
             steps {
-                dir('TerraformLinux/linux/'){
+                dir('cd  linux'){
                     sh "terraform fmt -list=true -write=false -diff=true -check=true"
                 }
             }
@@ -33,7 +33,7 @@ pipeline {
 
         stage('TerraformValidate'){
             steps {
-                dir('TerraformLinux/linux/'){
+                dir('cd  linux'){
                     sh "terraform validate"
                 }
             }
@@ -41,7 +41,7 @@ pipeline {
 
         stage('TerraformPlan'){
             steps {
-                dir('TerraformLinux/linux/'){
+                dir('cd  linux'){
                     script {
                         try {
                             sh "terraform workspace new ${params.WORKSPACE}"
@@ -68,7 +68,7 @@ pipeline {
                          currentBuild.result = 'UNSTABLE'
                     }
                     if(apply){
-                        dir('TerraformLinux/linux/'){
+                        dir('cd  linux'){
                             unstash "terraform-plan"
                             sh 'terraform apply terraform.tfplan' 
                         }
